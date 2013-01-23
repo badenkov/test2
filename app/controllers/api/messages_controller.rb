@@ -27,6 +27,8 @@ class Api::MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+        UserMailer.new_message_notification(current_user, @message).deliver
+
         format.json { render json: @message, status: :created, location: @message }
       else
         format.json { render json: @message.errors, status: :unprocessable_entity }
