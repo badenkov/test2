@@ -7,5 +7,12 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
+  
+  has_many :messages
+
+  before_save do |user|
+    unless user.auth_key
+      user.auth_key = (0..8).map{ 65.+(rand(26)).chr}.join
+    end
+  end
 end

@@ -1,5 +1,9 @@
 Test2::Application.routes.draw do
-  devise_for :users
+  namespace :api do
+    resources :messages
+  end
 
+  resources :messages
+  devise_for :users
   root to: "home#index"
 end
