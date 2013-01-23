@@ -14,13 +14,13 @@ class Message < ActiveResource::Base
              'content' => :string }
 end
 
-#message = Message.new(name: "Alexey", phone: "1290090", email: "badenkov@yandex.ru", content: "Привет")
-#message.content = "test"
-#if message.save
-  #puts "Сохранено"
-#else
-  #puts "Ошибки"
-  #puts message.errors.to_json
-#end
-messages = Message.find(:all, params: { email: "badenkov@yandex.ru" })
-p messages
+message = Message.new(name: "Alexey", phone: "1290090", email: "badenkov@yandex.ru", content: "Привет")
+message.content = "test"
+if message.save
+  puts "Сохранено"
+else
+  puts "Ошибки"
+  puts message.errors.to_json
+end
+#messages = Message.find(:all, params: { email: "badenkov@yandex.ru" })
+#p messages

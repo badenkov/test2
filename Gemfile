@@ -40,4 +40,5 @@ gem 'jquery-rails'
 
 group :development do
   gem 'quiet_assets'
+  gem 'letter_opener', '0.0.2', git: 'git://github.com/droidlabs/letter_opener.git'
 end
